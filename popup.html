@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝商品抓取器</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>淘宝商品抓取器</h1>
+        </header>
+
+        <div class="actions">
+            <button id="extractBtn" class="btn primary">
+                <span id="extractText">抓取商品信息</span>
+                <span id="loadingText" style="display: none;">抓取中...</span>
+            </button>
+        </div>
+
+        <div id="results" class="results" style="display: none;">
+            <div class="result-section">
+                <h3>商品标题</h3>
+                <div id="titleResult" class="title-result"></div>
+            </div>
+
+            <div class="result-section">
+                <h3>价格与销量</h3>
+                <div id="priceInfo" class="price-info"></div>
+            </div>
+
+            <div class="result-section">
+                <h3>数据导出</h3>
+                <div class="export-buttons">
+                    <button id="exportJSON" class="btn secondary">导出JSON</button>
+                    <button id="exportCSV" class="btn secondary">导出CSV</button>
+                    <button id="exportExcel" class="btn secondary">导出Excel</button>
+                    <button id="addToBatch" class="btn secondary">添加到批量</button>
+                </div>
+            </div>
+
+            <div class="result-section">
+                <h3>主图 (<span id="mainImageCount">0</span>张)</h3>
+                <div id="mainImagesResult" class="images-grid"></div>
+                <button id="downloadMainImages" class="btn secondary">下载所有主图</button>
+            </div>
+
+            <div class="result-section">
+                <h3>详情图 (<span id="detailImageCount">0</span>张)</h3>
+                <div id="detailImagesResult" class="images-grid"></div>
+                <button id="downloadDetailImages" class="btn secondary">下载所有详情图</button>
+            </div>
+
+            <div class="result-section">
+                <button id="downloadAll" class="btn primary">下载所有内容</button>
+            </div>
+        </div>
+
+        <div class="batch-section" style="display: none;" id="batchSection">
+            <div class="result-section">
+                <h3>批量处理 (<span id="batchCount">0</span>个商品)</h3>
+                <div class="batch-buttons">
+                    <button id="exportBatchJSON" class="btn secondary">导出批量JSON</button>
+                    <button id="exportBatchCSV" class="btn secondary">导出批量CSV</button>
+                    <button id="exportBatchExcel" class="btn secondary">导出批量Excel</button>
+                    <button id="clearBatch" class="btn secondary">清空批量</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+        
+        <div id="status" class="status"></div>
+    </div>
+
+    <script src="xlsx.min.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

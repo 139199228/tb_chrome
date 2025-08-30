@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "淘宝商品信息抓取器",
+  "version": "1.0.0",
+  "description": "抓取淘宝商品详情页的图片、标题等信息",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "*://*.taobao.com/*",
+    "*://*.tmall.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.taobao.com/*",
+        "*://*.tmall.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "抓取商品信息"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["xlsx.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
